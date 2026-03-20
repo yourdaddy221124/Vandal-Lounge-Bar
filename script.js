@@ -1,16 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Preloader
-    const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
+function removePreloader() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
             preloader.style.opacity = '0';
             setTimeout(() => {
                 preloader.style.display = 'none';
-                initAnimations();
+                if (typeof initAnimations === 'function') {
+                    initAnimations();
+                }
             }, 800);
-        }, 1000);
-    });
+        }
+    }
+
+    // Preloader - Robust load check
+    if (document.readyState === 'complete') {
+        setTimeout(removePreloader, 1000);
+    } else {
+        window.addEventListener('load', () => {
+            setTimeout(removePreloader, 1000);
+        });
+    }
+
+    // Safety timeout in case load event hangs
+    setTimeout(removePreloader, 5000);
 
     // Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
