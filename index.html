@@ -4,57 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vandal Lounge Bar | Powai Mumbai</title>
-    
-    <!-- FAIL-SAFE: This script runs BEFORE anything else -->
-    <script>
-        console.log("Vandal Emergency Loader Fix - Initializing");
-        function killLoader() {
-            console.log("Vandal Emergency Loader Fix - Kill command executed");
-            var loader = document.getElementById('preloader');
-            if (loader) {
-                loader.style.opacity = '0';
-                setTimeout(function() { loader.style.display = 'none'; }, 800);
-            }
-        }
-        // Force hide after 3 seconds no matter what
-        setTimeout(killLoader, 3000);
-        window.onload = killLoader;
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(killLoader, 1500);
-        });
-    </script>
-
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        #preloader {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: #050A1B;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.8s ease, visibility 0.8s;
-        }
-        .loader-logo { text-align: center; width: 140px; }
-        .loader-logo img { width: 100%; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
-        .loader-bar { height: 1px; background: #D4AF37; width: 0%; animation: load 2s ease forwards; margin-top: 15px; }
-        @keyframes load { to { width: 100%; } }
-    </style>
 </head>
 <body>
 
-    <div id="preloader">
-        <div class="loader-logo">
-            <img src="/media/logo.png" alt="Vandal Logo">
-            <div class="loader-bar"></div>
-        </div>
-    </div>
+    <!-- [TEMP] PRELOADER REMOVED FOR DEPLOYMENT TROUBLESHOOTING -->
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -71,56 +29,24 @@
     </nav>
 
     <!-- Hero -->
-    <header id="hero">
-        <div class="hero-bg"><img src="/media/hero_bg.png" alt="Interior"></div>
-        <div class="overlay"></div>
+    <header id="hero" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #050A1B;">
         <div class="hero-content">
-            <h4 class="reveal-text">Upscale & Avant-Garde</h4>
-            <h1 class="reveal-text" style="font-size: clamp(3rem, 12vw, 8rem);">VANDAL</h1>
-            <p class="reveal-text">Lounge | Bar | Powai</p>
-            <div class="hero-btns reveal-text">
-                <a href="#menu" class="btn btn-gold">View Menu</a>
-                <a href="#contact" class="btn btn-outline">Reservations</a>
+            <h4 style="color: #D4AF37; letter-spacing: 5px; text-transform: uppercase;">Upscale & Avant-Garde</h4>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(3rem, 12vw, 8rem); margin: 20px 0;">VANDAL</h1>
+            <p style="text-transform: uppercase; letter-spacing: 3px;">Lounge | Bar | Powai</p>
+            <div style="margin-top: 40px;">
+                <a href="#menu" style="background: #D4AF37; color: #050A1B; padding: 15px 30px; text-decoration: none; font-weight: 800;">View Menu</a>
             </div>
         </div>
     </header>
 
-    <section id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-img">
-                    <img src="/media/gallery_interior.png" alt="Mural" style="width: 100%; border: 1px solid var(--gold); padding: 10px;">
-                </div>
-                <div class="about-content">
-                    <div class="section-tag gold-text">Art & Mixology</div>
-                    <h2 class="playfair">A Canvas of Flavors</h2>
-                    <p>Vandal is an avant-garde destination where high-energy luxury meets artistic street soul.</p>
-                </div>
-            </div>
+    <section id="about" style="padding: 100px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div>
+            <img src="/media/gallery_interior.png" alt="Mural" style="width: 100%; border: 1px solid #D4AF37; padding: 10px;">
         </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" style="background: #0d152b;">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2 class="playfair" style="font-size: 3rem;">The Vandal Menu</h2>
-                <div style="width: 60px; height: 1px; background: var(--gold); margin: 20px auto;"></div>
-            </div>
-            <div class="menu-tabs" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 40px;">
-                <button class="menu-tab active" data-target="small-plates" style="background: none; color: white; border: 1px solid rgba(255,255,255,0.2); padding: 10px 20px; cursor: pointer;">Small Plates</button>
-                <button class="menu-tab" data-target="cocktails" style="background: none; color: white; border: 1px solid rgba(255,255,255,0.2); padding: 10px 20px; cursor: pointer;">Cocktails</button>
-            </div>
-            <div class="menu-content" style="max-width: 800px; margin: 0 auto;">
-                <div class="menu-pane active" id="small-plates">
-                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 15px 0; display: flex; justify-content: space-between;">
-                        <h4>Brie Fritters</h4><span>₹600</span>
-                    </div>
-                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 15px 0; display: flex; justify-content: space-between;">
-                        <h4>Truffle Dumplings</h4><span>₹300</span>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px;">Art & Mixology</h2>
+            <p>Vandal is an avant-garde destination where high-energy luxury meets artistic street soul.</p>
         </div>
     </section>
 
@@ -129,7 +55,6 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script type="module" src="./script.js"></script>
 </body>
 </html>
